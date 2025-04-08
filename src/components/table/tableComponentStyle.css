@@ -1,0 +1,161 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+.table-container {
+    min-height: 100vh;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    width: 100%;
+}
+
+.table-content {
+    width: 100%;
+    max-width: 1200px;
+    background-color: #fff;
+    min-height: 80vh;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading */
+.table-heading h2 {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.table-option-bar {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+}
+
+.search-option {
+    display: flex;
+    gap: 8px;
+}
+
+.search-option input {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.filter-option {
+    display: flex;
+    gap: 8px;
+}
+
+.filter-option select {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.table-btn {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007BFF;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.table-btn:hover {
+    opacity: 0.8;
+}
+
+/* Table Wrapper for Horizontal Scroll */
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto; /* Enables horizontal scroll when needed */
+    border-radius: 5px;
+    background: white;
+}
+
+.table-style {
+    width: 100%;
+    max-width: 100%; /* Ensures it stays inside the container */
+    overflow-x: auto; /* Enables horizontal scrolling if needed */
+}
+
+/* Table Styling */
+.table-style table {
+    width: 100%;
+    min-width: 800px; /* Prevents excessive shrinking */
+    border-collapse: collapse;
+    background: white;
+}
+
+.table-style thead {
+    background-color: #007BFF;
+    color: white;
+}
+
+.table-style th,
+.table-style td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    white-space: nowrap; /* Prevents text from wrapping */
+}
+
+.table-style th {
+    position: relative;
+}
+
+.table-style tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+.sort-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: white;
+    font-size: 14px;
+    margin-left: 5px;
+}
+
+/* Edit Button */
+.edit-btn {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #28a745;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.edit-btn:hover {
+    background-color: #218838;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .table-option-bar {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .search-option,
+    .filter-option {
+        flex-direction: column;
+        gap: 5px;
+    }
+}
