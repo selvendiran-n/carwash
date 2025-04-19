@@ -1,3 +1,4 @@
+import { locationData, membershipData, submittedFormData } from "../../constant/constant"
 import "./tableComponentStyle.css"
 
 export const Table = () => {
@@ -15,24 +16,34 @@ export const Table = () => {
 
                     <div className="table-option-bar">
 
+                        {/*Search by first name */}
                         <div className="search-option">
                             <input type="text" id="search" placeholder="Search by First Name" />
                             <button className="table-btn">Search</button>
                         </div>
 
+                        {/* Filter by Membership */}
                         <div className="filter-option">
-
+                        
                             <select name="membership" id="membership">
-                                <option value="membership-1">Membership-1</option>
-                                <option value="membership-2">Membership-2</option>
+                                <option value="">Select</option>
+                                {membershipData.map((data) => (
+                                    <option key={data.membershipId} value={data.membershipId}>{data.membershipType}</option>
+                                ))}
                             </select>
-
+                            {/* Filter by Location */}
                             <select name="location" id="location">
-                                <option value="location-1">Location-1</option>
-                                <option value="location-2">Location-2</option>
+                                <option value="">Select</option>
+                                {locationData.map((data) => (
+                                    <option key={data.locationId} value={data.locationId}>
+                                        {data.location}
+                                    </option>
+                                ))}
                             </select>
-
+                            {/* Filter by Status (Active/Inactive) */}
                             <select name="status" id="status">
+                                <option value="">Select</option>
+
                                 <option value="active">Active</option>
                                 <option value="inactive">In-Active</option>
                             </select>
@@ -44,6 +55,7 @@ export const Table = () => {
 
                     <div className="table-style">
                         <table>
+                        {/* Table header with sortable columns */}
                             <thead>
                                 <tr>
                                     <th>ID <button className="sort-btn">⇅</button></th>
@@ -56,35 +68,22 @@ export const Table = () => {
                                     <th>Action</th>
                                 </tr>
                             </thead>
-
+                            {/* Table body rendering rows from submittedFormData */}
                             <tbody>
-                                <tr>
-                                    <td>100</td>
-                                    <td>John</td>
-                                    <td>Doe</td>
-                                    <td>john@gmail.com</td>
-                                    <td>Basic</td>
-                                    <td>New York</td>
-                                    <td>Active</td>
-
-                                    <td>
-                                        <button className="edit-btn">Edit</button>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td>100</td>
-                                    <td>John</td>
-                                    <td>Doe</td>
-                                    <td>john@gmail.com</td>
-                                    <td>Basic</td>
-                                    <td>New York</td>
-                                    <td>Active</td>
-
-                                    <td>
-                                        <button className="edit-btn">Edit</button>
-                                    </td>
-                                </tr>
+                                {submittedFormData.map((data, index) => (
+                                    <tr key={data.id}>
+                                        <td>{data.id}</td>
+                                        <td>{data.firstName}</td>
+                                        <td>{data.lastName}</td>
+                                        <td>{data.email}</td>
+                                        <td>{data.membership}</td>
+                                        <td>{data.location}</td>
+                                        <td>{data.status == true ? "Active" : "Inactive"}</td>
+                                        <td>
+                                            <button className="edit-btn">Edit</button>
+                                        </td>
+                                    </tr>
+                                ))}
 
                             </tbody>
 

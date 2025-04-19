@@ -55,7 +55,7 @@
 .register-inputs {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 5px;
 }
 
 .register-input {
@@ -94,6 +94,31 @@
     width: 100%;
     gap: 30px;
 }
+
+
+.validation {
+    display: block;
+    min-height: 16px;
+    font-size: 12px;
+    color: red;
+    margin: 0px 0 0 15px;
+    line-height: 16px;
+    white-space: normal;
+    word-wrap: break-word;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  
+  .validation:empty {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  
+  .validation:not(:empty) {
+    opacity: 1;
+    transform: translateY(0);
+  }
 
 .register-btn-submit, .register-btn-cancel {
     display: flex;
